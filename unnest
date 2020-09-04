@@ -1,0 +1,7 @@
+unnest_v1([], []) :- !.
+unnest_v1([L|Ls], FlatL) :-
+    !,
+    unnest_v1(L, NewL),
+    unnest_v1(Ls, NewLs),
+    append(NewL, NewLs, FlatL).
+unnest_v1(L, [L]).
